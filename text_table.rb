@@ -78,38 +78,5 @@ class Table
     puts @table
     return self
   end
-
-  def self.test(*table_data)
-    t  = self.new(*table_data).print
-    id = t.object_id
-    puts "id: #{id}"
-    return t
-  end
 end
 
-puts "t1..."
-t1 = \
-Table.test %w[name   gender],
-             #-------------
-           %w[billy  male  ],
-           %w[johnny male  ],
-           %w[mom    female]
-
-puts "t2..."
-t2 = \
-Table.test %w[fruit   color  rating],
-             #---------------------
-           %w[banana  yellow 1     ],
-           %w[apple   red    3     ],
-           %w[mango   green  7     ]
-
-puts "t1..."
-t1.make(%w[shoe       size color],
-          #---------------------
-        %w[nike       11   black],
-        %w[vans       7    tan  ],
-        %w[adidas     9    white],
-        %w[timberland 12   brown],
-        %w[sketchers  6    green]).print
-
-puts "t1 = #{t1.object_id}"
