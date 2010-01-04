@@ -1,16 +1,16 @@
 require 'text_table.rb'
 
-# data for our table, each row is an array
-test1 =   %w[name   gender],
-             #-------------
-          %w[billy  male  ],
+# setup our table data
+test1 =   %w[name   gender], # first argument is an array representing the header
+            #-------------
+          %w[billy  male  ], # the rest are arrays representing rows 
           %w[johnny male  ],
           %w[mom    female]
 
-# create a table
+# create the table
 t = Table.new(*test1)
 
-# print it!
+# print the table
 t.print
 
 # rebuild the table and print it
