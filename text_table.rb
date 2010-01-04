@@ -58,20 +58,25 @@ class Table
   def build
     table = line = "+" + ("-" * (@max_width - 2) ) + "+\n"
 
-    return [table,
-            @rows.pair do |n,row|
-              r = Array.new
-            
-              r << ["|",
-                    row.pair { |y, cell| "-" * (@cell_sizes[y] + 2) }.join("+"),
-                    "|\n"
-              ] if n == 1
+    return [
+      table,
+      @rows.pair do |n,row|
+        r = Array.new
+              
+        r << [
+          "|",
+          row.pair { |y, cell| "-" * (@cell_sizes[y] + 2) }.join("+"),
+          "|\n"
+        ] if n == 1
 
-              r << ["|",
-                    row.pair { |i, c| " " + [c].pack("A#{ @cell_sizes[i] }") }.join(' |'),
-                    " |\n"]
-                    end,
-            line].join
+        r << [
+          "|",
+          row.pair { |i, c| " " + [c].pack("A#{ @cell_sizes[i] }") }.join(' |'),
+          " |\n"
+        ]
+      end,
+      line
+    ].join
   end
 
   def print
